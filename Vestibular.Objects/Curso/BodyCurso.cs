@@ -1,9 +1,7 @@
-﻿namespace Vestibular.Models
+﻿namespace Vestibular.Objects.Curso
 {
-    public class Curso
+    public class BodyCurso
     {
-        public int Id { get; set; }
-
         public string Nome { get; set; }
 
         public string Descricao { get; set; }

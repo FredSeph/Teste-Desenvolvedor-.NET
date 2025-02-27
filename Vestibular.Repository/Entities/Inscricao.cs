@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Vestibular.Repository.Entities
 {
     public class Inscricao
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public int Numero { get; set; }
@@ -21,5 +20,10 @@ namespace Vestibular.Repository.Entities
         public int IdCandidato { get; set; }
 
         public int IdCurso { get; set; }
+
+        // Relacionamentos
+        public ProcessoSeletivo ProcessoSeletivo { get; set; }
+        public Candidato Candidato { get; set; }
+        public Curso Curso { get; set; }
     }
 }

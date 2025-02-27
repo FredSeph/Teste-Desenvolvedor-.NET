@@ -1,12 +1,15 @@
 using Microsoft.EntityFrameworkCore;
+using Vestibular.DependencyInjection;
 using Vestibular.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddDbContext<VestibularDbContext>(options => options.UseSqlite("Data Source=Vestibular.db"));
+// Container / Serviços.
+builder.Services.AddDbContext<VestibularDbContext>(options => options.UseSqlite("Data Source=../Vestibular.Repository/Vestibular.db"));
+Register.RegisterRepositories(builder.Services);
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Swagger.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

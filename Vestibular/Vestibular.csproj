@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vestibular.Repository\Vestibular.Repository.csproj" />
+    <ProjectReference Include="..\Vestibular.Business\Vestibular.Business.csproj" />
+    <ProjectReference Include="..\Vestibular.DependencyInjection\Vestibular.DependencyInjection.csproj" />
+    <ProjectReference Include="..\Vestibular.Objects\Vestibular.Objects.csproj" />
   </ItemGroup>
 
 </Project>

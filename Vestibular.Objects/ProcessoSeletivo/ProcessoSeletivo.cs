@@ -1,4 +1,4 @@
-﻿namespace Vestibular.Models
+﻿namespace Vestibular.Objects.ProcessoSeletivo
 {
     public class ProcessoSeletivo
     {

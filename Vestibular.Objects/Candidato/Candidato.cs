@@ -1,4 +1,4 @@
-﻿namespace Vestibular.Models
+﻿namespace Vestibular.Objects.Candidato
 {
     public class Candidato
     {

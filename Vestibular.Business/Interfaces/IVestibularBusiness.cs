@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vestibular.Objects.Candidato;
+﻿using Vestibular.Objects.Candidato;
 using Vestibular.Objects.Curso;
 using Vestibular.Objects.Inscricao;
 using Vestibular.Objects.ProcessoSeletivo;
@@ -25,6 +20,7 @@ namespace Vestibular.Business.Interfaces
         void UpdateCandidato(int id, BodyCandidato candidato);
         void DeleteCandidato(int id);
         bool ExistsCandidato(int id);
+        bool ExistsCandidatoCpf(string cpf);
 
         Cursos GetCursos();
         Curso GetCurso(int id);
@@ -40,5 +36,8 @@ namespace Vestibular.Business.Interfaces
         void UpdateInscricao(int id, BodyInscricao inscricao);
         void DeleteInscricao(int id);
         bool ExistsInscricao(int id);
+        bool ExistsInscricaoProcessoSeletivo(int idProcessoSeletivo);
+        bool ExistsInscricaoCandidato(int idCandidato);
+        bool ExistsInscricaoCurso(int idCurso);
     }
 }

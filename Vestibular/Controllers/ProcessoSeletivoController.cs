@@ -75,6 +75,11 @@ public class ProcessoSeletivoController : ControllerBase
             return NotFound();
         }
 
+        if (_vestibularBusiness.ExistsInscricaoProcessoSeletivo(id))
+        {
+            return StatusCode(403, "Há inscrições neste processo seletivo.");
+        }
+
         _vestibularBusiness.DeleteProcessoSeletivo(id);
 
         return NoContent();

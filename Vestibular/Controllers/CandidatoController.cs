@@ -67,6 +67,11 @@ namespace Vestibular.Controllers
         [HttpPost]
         public ActionResult Post(BodyCandidato body)
         {
+            if (_vestibularBusiness.ExistsCandidatoCpf(body.CPF))
+            {
+                return Forbid("CPF já cadastrado.");
+            }
+
             var id = _vestibularBusiness.AddCandidato(body);
 
             return CreatedAtAction(nameof(Get), new { id }, id);
@@ -102,6 +107,11 @@ namespace Vestibular.Controllers
             if (!_vestibularBusiness.ExistsCandidato(id))
             {
                 return NotFound();
+            }
+
+            if (_vestibularBusiness.ExistsInscricaoCandidato(id))
+            {
+                return StatusCode(403, "Candidato possui uma ou mais inscrições.");
             }
 
             _vestibularBusiness.DeleteCandidato(id);

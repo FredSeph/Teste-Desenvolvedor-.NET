@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using Vestibular.Business.Interfaces;
+﻿using Vestibular.Business.Interfaces;
 using Vestibular.Objects.Candidato;
 using Vestibular.Objects.Curso;
 using Vestibular.Objects.Inscricao;
@@ -221,6 +220,11 @@ namespace Vestibular.Business.Business
             return _candidatoRepository.Any(e => e.Id == id);
         }
 
+        public bool ExistsCandidatoCpf(string cpf)
+        {
+            return _candidatoRepository.Any(e => e.CPF == cpf);
+        }
+
         // Curso
 
         public Cursos GetCursos()
@@ -436,6 +440,21 @@ namespace Vestibular.Business.Business
         public bool ExistsInscricao(int id)
         {
             return _inscricaoRepository.Any(e => e.Id == id);
+        }
+
+        public bool ExistsInscricaoProcessoSeletivo(int idProcessoSeletivo)
+        {
+            return _inscricaoRepository.Any(e => e.IdProcessoSeletivo == idProcessoSeletivo);
+        }
+
+        public bool ExistsInscricaoCandidato(int idCandidato)
+        {
+            return _inscricaoRepository.Any(e => e.IdCandidato == idCandidato);
+        }
+
+        public bool ExistsInscricaoCurso(int idCurso)
+        {
+            return _inscricaoRepository.Any(e => e.IdCurso == idCurso);
         }
 
         #endregion

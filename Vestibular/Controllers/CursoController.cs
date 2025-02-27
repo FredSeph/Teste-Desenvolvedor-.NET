@@ -76,6 +76,11 @@ namespace Vestibular.Controllers
                 return NotFound();
             }
 
+            if (_vestibularBusiness.ExistsInscricaoCurso(id))
+            {
+                return StatusCode(403, "Há inscrições nesse curso.");
+            }
+
             _vestibularBusiness.DeleteCurso(id);
 
             return NoContent();

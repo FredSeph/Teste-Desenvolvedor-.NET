@@ -69,7 +69,7 @@ namespace Vestibular.Controllers
         {
             if (_vestibularBusiness.ExistsCandidatoCpf(body.CPF))
             {
-                return Forbid("CPF já cadastrado.");
+                return StatusCode(403, "CPF já cadastrado.");
             }
 
             var id = _vestibularBusiness.AddCandidato(body);
@@ -89,6 +89,11 @@ namespace Vestibular.Controllers
             if (!_vestibularBusiness.ExistsCandidato(id))
             {
                 return NotFound();
+            }
+
+            if (_vestibularBusiness.ExistsCandidatoCpf(body.CPF))
+            {
+                return StatusCode(403, "CPF já cadastrado.");
             }
 
             _vestibularBusiness.UpdateCandidato(id, body);
